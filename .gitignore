@@ -33,3 +33,5 @@ build/
 .vscode/
 
 .space
+
+application.properties

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"   xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>ANINATION</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/user_profile.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+</head>
+<body>
+
+<header th:insert="~{blocks/header :: header}"></header>
+
+<div class="main_line">
+    <div class="user_info">
+        <div class="avatar">
+            <img th:src="'data:image/png;base64,' + ${user.base64EncodedImage}" alt="" class="user_avatar"/>
+        </div>
+        <div class="left_info">
+            <div class="main_left_info">
+                <div class="left_left_info">
+                    <p class="user_nickname" th:text="${user.username}"></p>
+                    <div class="info_year">
+                        <p>since <span th:text="${user.createdAt}"></span></p>
+                    </div>
+                </div>
+                <div class="right_left_info" sec:authorize="isAuthenticated()">
+                    <form method="post" th:action="@{/add_write}">
+                        <button type="submit" class="a_act_user_element tooltip manage_btn" th:if="${#vars.username != user.username}">
+                            <img src="/img/mini.png" alt="add_friend" class="act_user_element">
+                            <span class="tooltiptext">WRITE</span>
+                        </button>
+                    </form>
+                    <form method="post" th:action="@{/add_friend/{username}/to/{usr}(username=${user.username}, usr=${#vars.username})}">
+                        <button type="submit" class="a_act_user_element tooltip manage_btn" th:if="${#vars.username != user.username}">
+                            <img src="/img/mini.png" alt="add_friend" class="act_user_element">
+                            <span class="tooltiptext">ADD FRIEND</span>
+                        </button>
+                    </form>
+                    <form method="post" th:action="@{/add_ignore}">
+                        <button type="submit" class="a_act_user_element tooltip manage_btn" th:if="${#vars.username != user.username}">
+                            <img src="/img/mini.png" alt="add_friend" class="act_user_element">
+                            <span class="tooltiptext">IGNORE</span>
+                        </button>
+                    </form>
+                    <form method="post" th:action="@{/add_ban_history}">
+                        <button type="submit" class="a_act_user_element tooltip manage_btn" th:if="${#vars.username != user.username}">
+                            <img src="/img/mini.png" alt="add_friend" class="act_user_element">
+                            <span class="tooltiptext">BAN HISTORY</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="info_bars">
+                <div class="anime_bar main_bar">
+                    <a href="#"><p class="text_stats_bar user_title">ANIME STATS</p></a>
+                    <p class="days_stats"> days: <span>0</span></p>
+                    <div class="bar"></div>
+                    <div class="cont_text">
+                        <p class="text_element">watching: <span>0</span></p>
+                        <p class="text_element">completed: <span>0</span></p>
+                        <p class="text_element">on-hold: <span>0</span></p>
+                        <p class="text_element">dropped: <span>0</span></p>
+                        <p class="text_element">plan to watch: <span>0</span></p>
+                    </div>
+                </div>
+                <div class="manga_bar main_bar">
+                    <a href="#"><p class="text_stats_bar user_title">MANGA STATS</p></a>
+                    <p class="days_stats"> days: <span>0</span></p>
+                    <div class="bar"></div>
+                    <div class="cont_text">
+                        <p class="text_element">reading: <span>0</span></p>
+                        <p class="text_element">completed: <span>0</span></p>
+                        <p class="text_element">on-hold: <span>0</span></p>
+                        <p class="text_element">dropped: <span>0</span></p>
+                        <p class="text_element">plan to read: <span>0</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="middle_user">
+        <div class="stats_main">
+            <div><p class="user_title">YOUR STATS: <span>0</span> days <span>0</span> hours</p></div>
+            <div class="block_stats">
+                <div class="stats_column" style="height: 50px;"><span class="end_align_text">0</span></div>
+                <div class="stats_column" style="height: 25px;"><span class="end_align_text">0</span></div>
+                <div class="stats_column" style="height: 2px;"><span class="end_align_text">0</span></div>
+                <div class="stats_column" style="height: 34px;"><span class="end_align_text">0</span></div>
+                <div class="stats_column" style="height: 40px;"><span class="end_align_text">25</span></div>
+                <div class="stats_column" style="height: 12px;"><span class="end_align_text">4</span></div>
+                <div class="stats_column" style="height: 25px;"><span class="end_align_text">25</span></div>
+                <div class="stats_column" style="height: 7px;"><span class="end_align_text">25</span></div>
+                <div class="stats_column" style="height: 27px;"><span class="end_align_text">24</span></div>
+                <div class="stats_column" style="height: 20px;"><span class="end_align_text">13</span></div>
+                <div class="stats_column" style="height: 45px;"><span class="end_align_text">25</span></div>
+                <div class="stats_column" style="height: 30px;"><span class="end_align_text">25</span></div>
+                <div class="stats_column" style="height: 10px;"><span class="end_align_text">25</span></div>
+                <div class="stats_column" style="height: 0px;"><span class="end_align_text">25</span></div>
+                <div class="stats_column" style="height: 40px;"><span class="end_align_text">10</span></div>
+                <div class="stats_column" style="height: 80px;"><span class="end_align_text">9</span></div>
+                <div class="stats_column" style="height: 55px;"><span class="end_align_text">8</span></div>
+                <div class="stats_column" style="height: 100px;"><span class="end_align_text">5</span></div>
+                <div class="stats_column" style="height: 78px;"><span class="end_align_text">25</span></div>
+                <div class="stats_column" style="height: 62px;"><span class="end_align_text">25</span></div>
+            </div>
+        </div>
+        <div class="main_friend">
+            <a href="#"><p class="user_title">FRIENDS</p></a>
+            <div>
+                <a href="#" class="element_friend">
+                    <img src="/img/mini.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="favorites_user">
+        <a><p class="user_title">FAVORITES</p></a>
+        <div class="elements_favorite">
+            <a class="fv_el" href="#"><img src="/img/favorites.png" alt=""></a>
+            <a class="fv_el" href="#"><img src="/img/favorites.png" alt=""></a>
+            <a class="fv_el" href="#"><img src="/img/favorites.png" alt=""></a>
+            <a class="fv_el" href="#"><img src="/img/favorites.png" alt=""></a>
+        </div>
+    </div>
+    <div class="achievement_user">
+        <a><p class="user_title">ACHIEVEMENT</p></a>
+        <div class="column_1">
+            <div class="general">
+                <a href="#"><p>GENERAL</p></a>
+                <div class="general_achievement">
+                    <a class="fv_el" href="#"><img src="/img/achievements.png" alt=""></a>
+                </div>
+            </div>
+            <div class="general">
+                <a href="#"><p>GENRE</p></a>
+                <div class="general_achievement">
+
+                </div>
+            </div>
+        </div>
+        <div class="column_1">
+            <div class="general">
+                <a href="#"><p>AUTHOR</p></a>
+                <div class="general_achievement">
+                    <a class="fv_el" href="#"><img src="/img/achievements.png" alt=""></a>
+                    <a class="fv_el" href="#"><img src="/img/achievements.png" alt=""></a>
+                    <a class="fv_el" href="#"><img src="/img/achievements.png" alt=""></a>
+                </div>
+            </div>
+            <div class="general">
+                <a href="#"><p>FRANCHISE</p></a>
+                <div class="general_achievement">
+                    <a class="fv_el" href="#"><img src="/img/achievements.png" alt=""></a>
+                    <a class="fv_el" href="#"><img src="/img/achievements.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="about_user">
+        <p class="user_title">ABOUT USER</p>
+        <p class="text_about_user" th:text="${user.about != null} ? ${user.about} : 'the user did not write anything about himself'"></p>
+    </div>
+</div>
+
+<footer th:insert="~{blocks/footer :: footer}"></footer>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+:root{
+    --dark_color: #0E0B16;
+    --medium_dark_color: #2c1191;
+    --medium_light_color: #A239CA;
+    --light_color: #E7DFDD;
+}
+
+.element_title{
+    width: 130px;
+    padding: 2px;
+    margin: 2px;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.first_t{
+    color: var(--light_color);
+    font-size: 16px;
+     word-break: break-word;
+}
+
+.second_t{
+    color: var(--medium_light_color);
+    font-size: 12px;
+     word-break: break-word;
+}
+
+.element_news{
+    width: 300px;
+    padding: 2px;
+    margin: 2px;
+}
+
+.main_news{
+    margin-top: 20px;
+}
+.post_pic{
+    width: 300px;
+    height: 210px;
+}

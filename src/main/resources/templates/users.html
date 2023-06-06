@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"   xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>ANINATION</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/user_profile.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/users.css">
+</head>
+<body>
+
+<header th:insert="~{blocks/header :: header}"></header>
+
+<div class="main_line">
+    <div class="users_elements">
+        <a th:each="el : ${users}" th:href="'/user/' + ${el.username}" class="user_element">
+            <img th:src="'data:image/png;base64,' + ${el.base64EncodedImage}" alt="" class="users_avatar"/>
+            <p th:text="${el.username}" class="username_users"/>
+        </a>
+    </div>
+</div>
+
+<footer th:insert="~{blocks/footer :: footer}"></footer>
+
+</body>
+</html>

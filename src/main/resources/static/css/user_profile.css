@@ -1,0 +1,249 @@
+/* :root{
+    --dark_color: #22222E;
+    --medium_dark_color: #393A5A;
+    --medium_color: #706F8E;
+    --medium_light_color: #ADA9BA;
+    --light_color: #E9E9E9;
+} */
+:root{
+    --dark_color: #0E0B16;
+    --medium_dark_color: #2c1191;
+    --medium_light_color: #A239CA;
+    --light_color: #E7DFDD;
+}
+.user_info{
+    display: flex;
+}
+
+.avatar{
+    margin: 6px;
+    padding: 6px;
+}
+
+.left_info{
+    width: 100%;
+    display: block;
+}
+
+.main_left_info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.user_nickname{
+    color: var(--light_color);
+    margin: 10px 10px 0px 10px;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.info_year{
+    color: var(--medium_light_color);
+    margin: 0px 10px;
+    padding: 0px 10px;
+}
+
+.right_left_info{
+    display: flex;
+    margin-right: 12px;
+}
+
+.act_user_element{
+    width: 35px;
+    margin: 20px 5px 0px 5px;
+}
+
+.a_act_user_element{
+    height: 45px;
+    width: 45px;
+}
+
+
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+  
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 80px;
+    background-color: var(--light_color);
+    color: var(--dark_color);
+    text-align: center;
+    border-radius: 4px;
+    padding: 5px 0;
+    font-size: 14px;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    bottom: 65%;
+    margin-left: -60px;
+    margin-bottom: 5px;
+}
+  
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.info_bars{
+    margin: 10px;
+    padding: 0px 10px 10px;
+    color: var(--light_color);
+}
+
+.bar{
+    margin-top: 4px;
+    height: 8px;
+    width: 100%;
+    border-radius: 4px;
+    background-color: var(--medium_light_color);
+}
+
+.cont_text{
+    display: flex;
+}
+
+.text_element{
+    margin: 0px 10px;
+}
+
+.text_stats_bar{
+    font-size: 18px;
+}
+
+.days_stats{
+    color: var(--medium_light_color);
+}
+
+.main_bar{
+    margin-top: 10px;
+}
+.stats_main{
+    color: var(--light_color);
+    margin: 10px 20px;
+    width: 560px;
+}
+
+.block_stats{
+    margin: 10px;
+    display: flex;
+    width: 100%;
+    height: 160px;
+    align-items: end;
+    position: relative;
+}
+
+.stats_column{
+    background-color: var(--medium_light_color);
+    width: 25px;
+    margin: 1px;
+    display: flex;
+    justify-content: center;
+}
+
+.end_align_text{
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 0;
+    font-size: 15px;
+}
+
+.middle_user{
+    display: flex;
+}
+.main_friend{
+    color: var(--light_color);
+    font-size: 18px;
+}
+
+.element_friend{
+    margin: 5px;
+}
+
+.element_friend:nth-child(n+9) {
+    display: none;
+}
+
+.favorites_user{
+    margin: 0px 20px;
+
+}
+
+.elements_favorite{
+    display: flex;
+}
+
+.element_friend:nth-child(n+9) {
+    display: none;
+}
+
+.fv_el{
+    margin: 2px;
+}
+
+.fv_el:nth-child(n+11) {
+    display: none;
+}
+
+.achievement_user{
+    margin: 0px 20px;
+}
+
+.column_1{
+    display: block;
+}
+
+.general_achievement{
+    display: flex;
+}
+
+.general{
+    margin-top: 15px;
+    font-size: 14px;
+    color: var(--light_color);
+}
+
+.about_user{
+    color: var(--light_color);
+    margin: 10px 20px;
+    margin-bottom: 0px;
+}
+
+.text_about_user{
+    font-size: 16px;
+    margin: 10px 10px;
+}
+
+.user_avatar{
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+}
+
+.manage_btn img{
+    width: 35px;
+    height: 35px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.manage_btn{
+    width: 35px;
+    height: 35px;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.right_left_info form{
+    margin: 5px;
+    margin-top: 20px;
+    height: 35px;
+    width: 35px;
+}
+
+.right_left_info form:hover{
+    cursor:pointer;
+}

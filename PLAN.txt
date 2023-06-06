@@ -1,0 +1,9 @@
+PLAN FOR USER COLUMN IN DATABASE
+01 - id
+02 - username
+03 - role
+04 - email
+05 - password
+06 - user_pic
+07 - about
+09 - reg_date

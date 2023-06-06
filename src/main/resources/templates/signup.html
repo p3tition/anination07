@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"   xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>ANINATION</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/login_reg.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+</head>
+<body>
+
+    <header th:insert="~{blocks/header :: header}"></header>
+
+    <div class="main_line">
+        <div class="login_with">
+            <p>LOGIN WITH</p>
+            <div class="a_elemnts_login_with">
+                <a><img src="/img/achievements.png" alt="" width="100px"></a>
+                <a><img src="/img/achievements.png" alt="" width="100px"></a>
+                <a><img src="/img/achievements.png" alt="" width="100px"></a>
+            </div>
+        </div>
+        <div class="main_login">
+            <form class="cont_login" th:action="@{/signup}" method="POST">
+                <label>LOGIN</label>
+                <input type="text" name="username" class="inpt">
+                <label>EMAIL</label>
+                <input type="text" name="email" class="inpt">
+                <label>PASSWORD</label>
+                <input type="password" name="password" class="inpt" >
+                <button class="btn" type="submit">SIGN UP</button>
+                <div th:if="${param.error}" class="log_error">
+                    invalid username and password
+                </div>
+            </form>
+            <p class="forgot_links"><a href="#">forgot username?</a> | <a href="#">forgot password?</a></p>
+            <div class="signup">
+                <a class="btn" href="/login">LOGIN</a>
+            </div>
+        </div>
+    </div>
+
+    <footer th:insert="~{blocks/footer :: footer}"></footer>
+
+</body>
+</html>

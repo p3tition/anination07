@@ -2,7 +2,7 @@
     <header>
     <div class="main_header">
         <a class="dropdown_header_element header_element" href="#" sec:authorize="hasAuthority('ADMIN')">
-            <p>ADMIN</p>
+            <p class="admin_header_label">ADMIN</p>
         </a>
         <a class="a_header" href="/">
             <img src="/img/anination_logo.png" alt="LOGO" class="logo">
@@ -30,6 +30,8 @@
     <div class="dropdown" sec:authorize="isAuthenticated()">
         <a class="dropdown-toggle" href="#" th:text="${username}" th:href="@{'/user/' + ${username}}"></a>
         <div class="dropdown-menu">
+            <a href="/admin_panel" sec:authorize="hasAuthority('ADMIN')">ADMIN PANEL</a>
+            <a href="/post_add" sec:authorize="hasAuthority('ADMIN')">ADD NEWS</a>
             <a href="#">ANIME LIST</a>
             <a href="#">MANGA LIST</a>
             <a href="#">MAIL</a>

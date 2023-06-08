@@ -152,3 +152,7 @@ header{
     background-color: var(--light_color);
     color: var(--dark_color);
 }
+
+.admin_header_label{
+    color: var(--medium_light_color);
+}

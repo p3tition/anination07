@@ -34,7 +34,7 @@ public class WebSecurityConfig {
         http
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/", "/home", "/signup", "/user/**", "/users","/post/**").permitAll()
-                        .requestMatchers("/post_add").permitAll()
+                        .requestMatchers("/post_add","admin_panel").permitAll()
                         .requestMatchers("/img/**", "/css/**", "/js/**").permitAll()
                         .anyRequest().authenticated()
                 )

@@ -1,0 +1,12 @@
+:root{
+    --dark_color: #0E0B16;
+    --medium_dark_color: #2c1191;
+    --medium_light_color: #A239CA;
+    --light_color: #E7DFDD;
+}
+
+.chart{
+    border: 1px solid var(--medium_light_color);
+    width: 45%;
+    height: 250px;
+}

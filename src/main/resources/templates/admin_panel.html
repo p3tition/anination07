@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/admin_panel.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/footer.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="/js/admin_panel.js"></script>
 </head>
 <body>
@@ -14,7 +15,7 @@
 <header th:insert="~{blocks/header :: header}"></header>
 
 <div class="main_line">
-    <p>here admin panel</p>
+    <div class="chart" id='chart_div'></div>
 </div>
 
 <footer th:insert="~{blocks/footer :: footer}"></footer>

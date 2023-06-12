@@ -1,7 +1,7 @@
 package com.example.anination05.controllers;
 
 import com.example.anination05.models.Post;
-import com.example.anination05.models.User;
+import com.example.anination05.models.Users;
 import com.example.anination05.repo.UserRepository;
 import com.example.anination05.repo.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +24,8 @@ public class MainController {
 
     @GetMapping("/users")
     public String users(Model model){
-        Iterable<User> users = userRepository.findAll();
-        for (User user : users) {
+        Iterable<Users> users = userRepository.findAll();
+        for (Users user : users) {
             user.encodePhoto(); // Call the encodePhoto method to set the base64EncodedImage property
         }
         model.addAttribute("users",users);

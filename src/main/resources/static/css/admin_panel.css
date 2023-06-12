@@ -9,4 +9,10 @@
     border: 1px solid var(--medium_light_color);
     width: 45%;
     height: 250px;
+    margin: 10px;
+}
+
+.main_line{
+    display: flex;
+    justify-content: center;
 }

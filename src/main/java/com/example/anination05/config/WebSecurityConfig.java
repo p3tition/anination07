@@ -1,6 +1,6 @@
 package com.example.anination05.config;
 
-import com.example.anination05.models.User;
+import com.example.anination05.models.Users;
 import com.example.anination05.repo.UserRepository;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -70,7 +69,7 @@ public class WebSecurityConfig {
     @Bean
     public UserDetailsService userDetailsService() {
         return (username) -> {
-            User user = userRepository.findByUsername(username);
+            Users user = userRepository.findByUsername(username);
             if (user == null) {
                 throw new UsernameNotFoundException(username);
             }

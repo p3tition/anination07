@@ -1,7 +1,7 @@
 package com.example.anination05.controllers;
 
 
-import com.example.anination05.models.User;
+import com.example.anination05.models.Users;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -25,7 +25,7 @@ public class HeaderControllerAdvice {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null && authentication.getPrincipal() instanceof UserDetails) {
             String username = ((UserDetails) authentication.getPrincipal()).getUsername();
-            User user = userRepository.findByUsername(username);
+            Users user = userRepository.findByUsername(username);
             if (user != null) {
                 model.addAttribute("username", user.getUsername()); // Update the username attribute
                 model.addAttribute("email", user.getEmail());

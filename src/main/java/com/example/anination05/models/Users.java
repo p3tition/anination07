@@ -9,14 +9,14 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Collection;
 import java.util.List;
 
 @Entity
-public class User implements UserDetails {
+@Table(name = "users")
+public class Users implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -184,10 +184,10 @@ public class User implements UserDetails {
         this.photo = photo;
     }
 
-    public User() {
+    public Users() {
     }
 
-    public User(String username, String password, String email, String role) {
+    public Users(String username, String password, String email, String role) {
         this.username = username;
         this.password = passwordEncoder.encode(password);
         this.email = email;

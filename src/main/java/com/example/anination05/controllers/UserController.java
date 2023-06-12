@@ -1,13 +1,11 @@
 package com.example.anination05.controllers;
 
-import com.example.anination05.models.User;
+import com.example.anination05.models.Users;
 import com.example.anination05.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.ui.Model;
@@ -20,7 +18,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.Objects;
-import java.util.Optional;
 
 @Controller
 public class UserController {
@@ -30,7 +27,7 @@ public class UserController {
 
     @GetMapping("/user/{username}")
     public String userpage(@PathVariable(value = "username")String username, Model model) {
-        User user = userRepository.findByUsername(username);
+        Users user = userRepository.findByUsername(username);
         user.encodePhoto();
         if (user == null) {
             // handle the case when no user with the given username is found
@@ -55,7 +52,7 @@ public class UserController {
     public String saveAvatar(@RequestParam("avatar") MultipartFile avatarFile) throws IOException {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = ((UserDetails) authentication.getPrincipal()).getUsername();
-        User user = userRepository.findByUsername(username);
+        Users user = userRepository.findByUsername(username);
         if (!avatarFile.isEmpty()) {
             byte[] bytes = avatarFile.getBytes();
             user.setPhoto(bytes);
@@ -68,15 +65,15 @@ public class UserController {
     public String saveUsername(@RequestParam("username") String username) throws IOException {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username_old = ((UserDetails) authentication.getPrincipal()).getUsername();
-        User user = userRepository.findByUsername(username_old);
+        Users user = userRepository.findByUsername(username_old);
         if (Objects.nonNull(username)) {
             user.setUsername(username);
             userRepository.save(user);
-            User updatedUser = userRepository.findByUsername(username);
+            Users updatedUser = userRepository.findByUsername(username);
             authentication = new UsernamePasswordAuthenticationToken(updatedUser, authentication.getCredentials(), authentication.getAuthorities());
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }
-        User updatedUser = userRepository.findByUsername(username);
+        Users updatedUser = userRepository.findByUsername(username);
         return "redirect:/user/" + updatedUser.getUsername();
     }
 
@@ -85,7 +82,7 @@ public class UserController {
     public String saveEmail(@RequestParam("email") String email) throws IOException {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = ((UserDetails) authentication.getPrincipal()).getUsername();
-        User user = userRepository.findByUsername(username);
+        Users user = userRepository.findByUsername(username);
         if (Objects.nonNull(email)) {
             user.setEmail(email);
             userRepository.save(user);

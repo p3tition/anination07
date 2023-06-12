@@ -1,6 +1,6 @@
 package com.example.anination05.controllers;
 
-import com.example.anination05.models.User;
+import com.example.anination05.models.Users;
 import com.example.anination05.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,7 +26,7 @@ public class SignupController {
                              @RequestParam String password,
                              Model model){
         String role = "USER";
-        User user = new User(username, email, password, role);
+        Users user = new Users(username, email, password, role);
         userRepository.save(user);
         return "redirect:/users";
     }

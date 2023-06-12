@@ -10,11 +10,11 @@ public class Friends {
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
+    private Users user;
 
     @ManyToOne
     @JoinColumn(name = "friend_id", referencedColumnName = "id")
-    private User friend;
+    private Users friend;
 
     public Long getId() {
         return id;
@@ -24,19 +24,19 @@ public class Friends {
         this.id = id;
     }
 
-    public User getUser() {
+    public Users getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(Users user) {
         this.user = user;
     }
 
-    public User getFriend() {
+    public Users getFriend() {
         return friend;
     }
 
-    public void setFriend(User friend) {
+    public void setFriend(Users friend) {
         this.friend = friend;
     }
 }

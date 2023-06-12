@@ -1,6 +1,6 @@
 package com.example.anination05.controllers;
 
-import com.example.anination05.models.User;
+import com.example.anination05.models.Users;
 import com.example.anination05.repo.UserRepository;
 import jakarta.persistence.Transient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,7 @@ public class LoginController {
     public String loginPost(@RequestParam String username,
                             @RequestParam String password,
                             Model model) {
-        User user = userRepository.findByUsername(username);
+        Users user = userRepository.findByUsername(username);
         if(user != null && passwordEncoder.matches(password, user.getPassword())){
             return "redirect:/users";
         } else {

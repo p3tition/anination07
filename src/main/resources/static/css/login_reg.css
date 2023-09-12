@@ -38,10 +38,16 @@
 }
 
 .cont_login{
+    width: 500px;
     text-align: center;
-    margin-left: calc(50% - 100px);
+    margin-left: auto;
+    margin-right: auto;
 }
-
+.cont_login *{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
 .cont_login label{
     margin-bottom: 10px;
     width: 200px;
@@ -65,6 +71,8 @@ form input,
 .forgot_links{
     text-align: center;
     transition: color 0.2s ease-out;
+    margin: 5px;
+    padding-bottom: 4px;
 }
 
 .forgot_links a:hover{

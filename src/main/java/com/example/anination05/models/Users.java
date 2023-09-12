@@ -5,12 +5,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.Collection;
 import java.util.List;
 
@@ -45,21 +41,18 @@ public class Users implements UserDetails {
     private boolean isCredentialsNonExpired;
     private boolean isEnabled;
 
-    @Lob
-    @Column(name = "user_pic", columnDefinition="MEDIUMBLOB")
-    private byte[] photo;
-
     @Transient
     private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    @Transient
-    private String base64EncodedImage;
+    @Column(name = "photo_path", columnDefinition = "VARCHAR(255) DEFAULT '/static/img/10.png'")
+    private String photoPath;
 
-    public String getBase64EncodedImage() {
-        return base64EncodedImage;
+    public String getPhotoPath() {
+        return photoPath;
     }
-    public void setBase64EncodedImage(String base64EncodedImage) {
-        this.base64EncodedImage = base64EncodedImage;
+
+    public void setPhotoPath(String photoPath) {
+        this.photoPath = photoPath;
     }
 
     @PrePersist
@@ -75,39 +68,6 @@ public class Users implements UserDetails {
         this.createdAt = createdAt;
     }
     // Add a null check for the photo field
-    public void encodePhoto() {
-        if (photo != null) {
-            this.base64EncodedImage = Base64.getEncoder().encodeToString(photo);
-        } else {
-            // If the user hasn't uploaded an image, use the default image
-            String defaultImageFile = "/static/img/10.png";
-            InputStream is = getClass().getResourceAsStream(defaultImageFile);
-            if (is != null) {
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                byte[] buffer = new byte[1024];
-                int length;
-                try {
-                    while ((length = is.read(buffer)) != -1) {
-                        baos.write(buffer, 0, length);
-                    }
-                    this.base64EncodedImage = Base64.getEncoder().encodeToString(baos.toByteArray());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } finally {
-                    try {
-                        is.close();
-                        baos.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            } else {
-                // handle the case when the resource file is not found
-                System.out.println("Default image file not found.");
-            }
-        }
-    }
-
     public Long getId() {
         return id;
     }
@@ -174,14 +134,6 @@ public class Users implements UserDetails {
 
     public void setAbout(String about) {
         this.about = about;
-    }
-
-    public byte[] getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(byte[] photo) {
-        this.photo = photo;
     }
 
     public Users() {

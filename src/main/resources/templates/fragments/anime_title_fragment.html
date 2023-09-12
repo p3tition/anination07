@@ -1,0 +1,29 @@
+
+<article class="anime_title anime-entry" th:fragment="animeTitleFragment(animeList)">
+    <div th:each="anime : ${animeList}">
+        <a href="#">
+            <img src="/img/title.png" alt="title">
+            <p class="title_main_info">TITLE TEST BIG TITLE, OK IT W</p>
+            <p>
+                studio <span class="title_mini_info" th:text="${anime.year}">year</span>
+            </p>
+        </a>
+        <div class="tooltip">
+            <p class="tooltip_title">TITLE</p>
+            <p class="tooltip_description">
+                DESCRIPTION WITH A LOT OF TEXT STOLEN FROM MY ANIME LIST,
+                BUT NOT MUCH BECAUSE I DONT WANT TO THINK ABOUT RESIZE,
+                ok maybe now it auto resizing(yes)
+            </p>
+            <p class="tooltipe_middle">
+                <span><span class="tooltip_category">type:</span> <span>MOVIE</span></span>
+                <span><span class="tooltip_category">episodes:</span> <span >10</span></span>
+                <span><span class="tooltip_category">status:</span> <span>ongoing</span></span>
+                <span><span class="tooltip_category">score:</span> <span>8.7</span></span>
+            </p>
+            <p>
+                <span class="tooltip_category">genres:</span> <span>action, horror, something</span>
+            </p>
+        </div>
+    </div>
+</article>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"   xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>ANINATION</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/post_template.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <script src="/js/auto_resize.js"></script>
+</head>
+<body>
+
+<header th:insert="~{blocks/header :: header}"></header>
+
+<div class="main_line">
+    <form method="post" th:action="'/admin_panel/post_request/' + ${post.id}">
+
+        <input type="submit" name="action" value="ADD" class="button_settings bs2">
+        <input type="submit" name="action" value="CHANGE AND ADD" class="button_settings bs2">
+        <input type="submit" name="action" value="DELETE" class="button_settings bs1"><br>
+
+        <input type="text" name="postTitle" class="main_text big_input_settings" th:field="${post.title}"><br>
+
+        <a th:text="${post.author}" class="small_text" th:href="'/user/' + ${post.author}"></a>
+        <br>
+        <div class="post_pic_parent"><br>
+            <img th:src="${post.photoPath}" alt="" class="post_pic"/>
+        </div>
+        <br>
+
+        <textarea type="text" name="postMaintext" class="main_text big_textarea_settings" th:field="${post.main_text}" oninput="auto_grow(this)"></textarea><br>
+
+        <p class="small_text" th:text="${post.createdAt}"></p><br>
+    </form>
+
+</div>
+
+<footer th:insert="~{blocks/footer :: footer}"></footer>
+
+</body>
+</html>

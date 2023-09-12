@@ -15,8 +15,46 @@
 <header th:insert="~{blocks/header :: header}"></header>
 
 <div class="main_line">
+    <div class="container_ap welcome_ap">
+        <p>WELCOME TO ADMIN PANEL</p>
+    </div>
     <div class="chart" id='chart_1_div'></div>
     <div class="chart" id='chart_2_div'></div>
+    <div class="container_ap news_changes">
+        <a class="category_title_ap" href="/news">NEWS:</a>
+        <a class="button_settings bs2" href="/post_add">ADD NEWS</a>
+        <a class="button_settings bs2" href="/admin_panel/post_request">ACCEPT NEWS ADDING REQUEST</a>
+    </div>
+    <div class="container_ap forum_changes">
+        <a class="category_title_ap" href="#">FORUM:</a>
+        <a class="button_settings bs2" href="/#">ADD FORUM CATEGORY</a>
+        <a class="button_settings bs2" href="/#">ACCEPT FORUM CATEGORY ADDING REQUEST</a>
+    </div>
+    <div class="container_ap voting_changes">
+        <a class="category_title_ap" href="#">VOTING:</a>
+        <a class="button_settings bs2" href="/#">ADD VOTING</a>
+        <a class="button_settings bs2" href="/#">ACCEPT VOTING ADDING REQUEST</a>
+    </div>
+    <div class="container_ap user_changes">
+        <a class="category_title_ap" href="/users">USER:</a>
+        <a class="button_settings bs2" href="#">CHANGE ROLE FOR USER</a>
+        <a class="button_settings bs2" href="#">BLOCK USER</a>
+    </div>
+    <div class="container_ap titles_db">
+        <a class="category_title_ap">DATABASE:</a>
+        <a class="button_settings bs2" href="#">ACCEPT TITLE ADDING REQUEST</a>
+        <a class="button_settings bs2" href="#">ADD ANIME TO DATABASE</a>
+        <a class="button_settings bs2" href="#">ADD MANGA TO DATABASE</a>
+    </div>
+    <div class="container_ap help_admin">
+        <a class="category_title_ap">HELP:</a>
+        <a class="button_settings bs2" href="#">RULES FOR ADMIN</a>
+        <a class="button_settings bs2" href="#">ANOTHER DOCS FOR ADMIN</a>
+    </div>
+    <div class="container_ap other_admin">
+        <a class="category_title_ap">OTHER:</a>
+        <a class="button_settings bs2" href="#">ADMINS TREE</a>
+    </div>
 </div>
 
 <footer th:insert="~{blocks/footer :: footer}"></footer>

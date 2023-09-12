@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-public class Post {
+public class Post_request {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,9 +15,6 @@ public class Post {
 
     @Column(name = "main_text", columnDefinition="LONGTEXT")
     private String main_text;
-
-    @Column(name = "accept_by")
-    private String accept_by;
 
     @Column(name = "author")
     private String author;
@@ -76,37 +73,14 @@ public class Post {
         this.createdAt = createdAt;
     }
 
-    public String getAccept_by() {
-        return accept_by;
+    public Post_request() {
     }
 
-    public void setAccept_by(String accept_by) {
-        this.accept_by = accept_by;
-    }
-
-    public Post() {
-    }
-
-    public Post(String title, String main_text, String author) {
+    public Post_request(String title, String main_text, String author) {
         this.title = title;
         this.main_text = main_text;
         this.author = author;
         this.createdAt = LocalDate.now();
     }
 
-    public Post(String title, String main_text, String author, String accept_by) {
-        this.title = title;
-        this.main_text = main_text;
-        this.author = author;
-        this.createdAt = LocalDate.now();
-        this.accept_by = accept_by;
-    }
-    public Post(String title, String author, String photoPath, String mainText, String acceptBy) {
-        this.title = title;
-        this.author = author;
-        this.photoPath = photoPath;
-        this.main_text = mainText;
-        this.createdAt = LocalDate.now();
-        this.accept_by = acceptBy;
-    }
 }

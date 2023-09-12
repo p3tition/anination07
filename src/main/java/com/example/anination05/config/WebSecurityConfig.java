@@ -32,9 +32,9 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/home", "/signup", "/user/**", "/users","/post/**").permitAll()
+                        .requestMatchers("/", "/home", "/signup", "/user/**", "/users","/post/**", "/anime/**", "/anime", "/load-anime").permitAll()
                         .requestMatchers("/post_add","admin_panel").permitAll()
-                        .requestMatchers("/img/**", "/css/**", "/js/**").permitAll()
+                        .requestMatchers("/img/**", "/css/**", "/js/**", "/upload/**", "/static/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
@@ -78,10 +78,5 @@ public class WebSecurityConfig {
             return new org.springframework.security.core.userdetails.User(
                     user.getUsername(), user.getPassword(), authorities);
         };
-    }
-
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**")
-                .addResourceLocations("classpath:/static/");
     }
 }

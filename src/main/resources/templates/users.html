@@ -16,7 +16,7 @@
 <div class="main_line">
     <div class="users_elements">
         <a th:each="el : ${users}" th:href="'/user/' + ${el.username}" class="user_element">
-            <img th:src="'data:image/png;base64,' + ${el.base64EncodedImage}" alt="" class="users_avatar"/>
+            <img th:src="${el.photoPath}" alt="" class="users_avatar"/>
             <p th:text="${el.username}" class="username_users"/>
         </a>
     </div>

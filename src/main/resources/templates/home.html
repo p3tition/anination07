@@ -56,10 +56,10 @@
         </div>
 
         <div class="main_news">
-            <a class="user_title" href="#">News</a>
+            <a class="user_title" href="/news">News</a>
             <div class="row">
                 <a class="element_news" th:each="el : ${posts}" th:href="'/post/' + ${el.id}">
-                    <img src="/img/title.png" th:src="'data:image/png;base64,' + ${el.base64EncodedImage}" class="post_pic">
+                    <img th:src="${el.photoPath}" class="post_pic">
                     <p class="first_t"th:text="${el.title}">Title name</p>
                     <p class="second_t"th:text="${el.author}">Comp name</p>
                 </a>

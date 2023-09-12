@@ -7,7 +7,7 @@
 
 .chart{
     border: 1px solid var(--medium_light_color);
-    width: 45%;
+    width: 44%;
     height: 250px;
     margin: 10px;
 }
@@ -15,4 +15,21 @@
 .main_line{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+}
+
+.container_ap{
+    width: 100%;
+}
+
+.category_title_ap{
+    color: var(--light_color);
+    font-size: 20px;
+}
+
+.welcome_ap{
+    text-align: center;
+    margin-top: 10px;
+    color: var(--light_color);
+    font-size: 25px;
 }

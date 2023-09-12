@@ -15,7 +15,7 @@
 <div class="main_line">
     <div class="user_info">
         <div class="avatar">
-            <img th:src="'data:image/png;base64,' + ${user.base64EncodedImage}" alt="" class="user_avatar"/>
+            <img th:src="${user.getPhotoPath()}" alt="" class="user_avatar"/>
         </div>
         <div class="left_info">
             <div class="main_left_info">

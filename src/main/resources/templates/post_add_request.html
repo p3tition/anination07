@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"   xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>ANINATION</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/post_add.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+</head>
+<body>
+
+    <header th:insert="~{blocks/header :: header}"></header>
+
+    <div class="main_line">
+        <form class="editcontent"  th:action="@{/post_add_request}" method="post" enctype="multipart/form-data">
+            <p class="title_settings">TITLE</p>
+            <input class="input_settings" type="text" name="title">
+            <br>
+            <p class="title_settings">TEXT</p>
+            <textarea class="textarea_settings" name="main_text"></textarea>
+            <br>
+            <input type="file" name="avatar" class="file_input_settings"/>
+            <br>
+            <a class="button_settings bs1" href="/">CANCEL</a>
+            <button class="button_settings bs2" type="submit">ADD POST</button>
+        </form>
+    </div>
+
+    <footer th:insert="~{blocks/footer :: footer}"></footer>
+
+</body>
+</html>

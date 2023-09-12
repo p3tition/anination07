@@ -30,7 +30,7 @@
 }
 
 .element_news{
-    width: 300px;
+    width: 30%;
     padding: 2px;
     margin: 2px;
 }
@@ -39,6 +39,7 @@
     margin-top: 20px;
 }
 .post_pic{
-    width: 300px;
+    width: 100%;
     height: 210px;
+    object-fit: cover;
 }

@@ -10,7 +10,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
 import java.util.List;
 
 @Controller
@@ -23,21 +22,18 @@ public class MainController {
     private PostRepository postRepository;
 
     @GetMapping("/users")
-    public String users(Model model){
+    public String users(Model model) {
         Iterable<Users> users = userRepository.findAll();
-        for (Users user : users) {
-            user.encodePhoto(); // Call the encodePhoto method to set the base64EncodedImage property
-        }
-        model.addAttribute("users",users);
+        model.addAttribute("users", users);
         return "users";
     }
-/*test*/
+
     @GetMapping(value = {"/", "/home"})
     public String home(Model model) {
-        Pageable pageable = PageRequest.of(0, 4);
+        Pageable pageable = PageRequest.of(0, 3);
         List<Post> posts = postRepository.findAllByOrderByCreatedAtDesc(pageable);
         for (Post post : posts) {
-            post.encodePhoto();
+            post.getPhotoPath();
         }
         model.addAttribute("posts", posts);
         return "home";

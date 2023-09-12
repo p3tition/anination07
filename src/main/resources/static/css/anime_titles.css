@@ -1,0 +1,84 @@
+:root{
+    --dark_color: #0E0B16;
+    --medium_dark_color: #2c1191;
+    --medium_light_color: #A239CA;
+    --light_color: #E7DFDD;
+}
+
+.main_line {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    min-height: 0px; /* override for normal displaying items */
+}
+
+.anime_title {
+    position: relative;
+    width: 130px;
+    height: 250px;
+    margin: 10px 10px;
+    box-sizing: border-box;
+}
+
+.anime_title img {
+    padding: 0px 5px;
+    max-width: 100%;
+    height: auto;
+}
+
+.anime_title a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.title_mini_info{
+    float: right;
+}
+a p {
+    color: var(--medium_light_color);
+}
+.title_main_info{
+    color: var(--light_color);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.tooltip {
+    position: absolute;
+    top: 0;
+    right: -240%;
+    width: 210%;
+    background-color: var(--dark_color);
+    color: var(--light_color); 
+    padding: 10px; 
+    z-index: 2;
+    display: none;
+    border: 1px solid var(--medium_light_color);
+}
+
+.anime_title:hover .tooltip {
+    display: block;
+}
+
+.tooltip_title{
+    color: var(--medium_light_color);
+}
+
+.tooltipe_middle{
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tooltip_description{
+    font-size: 16px;
+    margin: 5px 0px;
+}
+
+.tooltip_category{
+    color: var(--medium_light_color);
+}

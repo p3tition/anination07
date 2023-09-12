@@ -24,18 +24,16 @@
         <div class="main_login">
             <form class="cont_login" th:action="@{/login}" method="post">
                 <label>LOGIN</label>
-                <input class="inpt" type="text" name="username">
+                <input class="input_settings" type="text" name="username">
                 <label>PASSWORD</label>
-                <input class="inpt" type="password" name="password">
-                <button class="btn" type="submit">LOGIN</button>
-                <div th:if="${param.error}" class="log_error">
-                    invalid username and password
-                </div>
+                <input class="input_settings" type="password" name="password">
+                <button class="button_settings bs2" type="submit">LOGIN</button>
+                <p th:if="${param.error}" class="log_error">
+                    invalid username or password
+                </p>
+                <p class="forgot_links"><a href="#">forgot username?</a> | <a href="#">forgot password?</a></p>
+                <a class="button_settings bs2" href="/signup">SIGN UP</a>
             </form>
-            <p class="forgot_links"><a href="#">forgot username?</a> | <a href="#">forgot password?</a></p>
-            <div class="signup">
-                <a class="btn" href="/signup">SIGN UP</a>
-            </div>
         </div>
     </div>
 

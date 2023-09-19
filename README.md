@@ -18,7 +18,7 @@ Website for anime and manga news, where you can storage your list of watching or
 
 ### Screenshots:
 ###### Titles, and description
-![alt text](screenshots/pic_2.jpg)
+![alt text](screenshots/pic_2.png)
 ###### User profile
 ![alt text](screenshots/pic_3.png)
 ###### Panel for administration and moderation

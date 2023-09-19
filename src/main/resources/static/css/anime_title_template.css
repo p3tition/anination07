@@ -1,0 +1,155 @@
+:root{
+    --dark_color: #0E0B16;
+    --medium_dark_color: #2c1191;
+    --medium_light_color: #A239CA;
+    --light_color: #E7DFDD;
+    --status1: #A239CA;
+    --status2: #C669E2;
+    --status3: #E599F9;
+    --status4: #F2B4FF;
+    --status5: #FFDFFF;
+}
+
+.level_0{
+    padding: 10px 0px;
+    display: flex;
+}
+
+.poster_title{
+    height: 300px;
+    margin: 0px 10px;
+}
+
+.level_0 > .info{
+    width: 33%;
+}
+
+.title_info{
+    color: var(--medium_light_color);
+    font-size: 20px;
+}
+
+.category_info{
+    color: var(--medium_light_color);
+    font-size: 18px;
+}
+
+.progress-bar {
+    width: 170px;
+    display: flex;
+    align-items: center;
+    height: 20px;
+    position: relative;
+    border-radius: 14px 14px 14px 14px;
+}
+
+.square {
+    width: 15px;
+    height: 15px;
+    border: 2px solid var(--light_color);
+    margin: 0 0px;
+    z-index: 0;
+}
+
+.square.completed {
+    background-color: var(--medium_light_color);
+    border-color: var(--light_color);
+}
+
+.progress-bar > .first {
+    border-radius: 50% 0% 0% 50%;
+}
+
+.progress-bar > .last {
+    border-radius: 0% 50% 50% 0%;
+}
+
+.score_num {
+    font-size: 20px;
+    margin: 2px 4px;
+    position: absolute;
+    left: 100%;
+    transform: translateX(5px);
+}
+.bar_animate{
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    height: 16px;
+    position: absolute;
+    border-radius: 14px 0px 0px 14px;
+    background-color: var(--medium_light_color);
+    animation: progress 0.9s ease-in-out forwards;
+}
+@keyframes progress {
+    0% {
+        width: 0;
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.st_title{
+    color: var(--medium_light_color);
+    font-size: 18px;
+}
+
+.status1 .st_title1 {
+    color: var(--status1);
+}
+
+.status2 .st_title2 {
+    color: var(--status2);
+}
+
+.status3 .st_title3 {
+    color: var(--status3);
+}
+
+.status4 .st_title4 {
+    color: var(--status4);
+}
+
+.status5 .st_title5 {
+    color: var(--status5);
+}
+
+.level_1{
+    font-size: 16px;
+}
+
+.hidden {
+    display: none;
+}
+
+.video_link {
+    display: inline-block;
+    position: relative;
+}
+
+.video_link img {
+    height: 300px;
+    margin: 6px 0px;
+    border: 1px solid var(--light_color);
+}
+
+.circle_button {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle_button::after {
+    content: "\25B6";
+    font-size: 50px;
+    color: white;
+}

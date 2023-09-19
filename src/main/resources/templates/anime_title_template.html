@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"   xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>ANINATION</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/anime_title_template.css">
+    <link rel="stylesheet" href="/css/circle_chart.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/title_template.js"></script>
+    <script src="/js/chart.js"></script>
+</head>
+<body>
+
+<header th:insert="~{blocks/header :: header}"></header>
+
+    <div class="main_line">
+        <div class="level_0">
+            <div class="left_info">
+                <img class="poster_title" th:src="${anime_title.photoPath}" alt="title">
+            </div>
+            <div class="middle_info info">
+                <p class="title_info">${anime.title}</p>
+                <div class="progress-bar">
+                    <div class="bar_animate">
+                    </div>
+                    <div class="square first"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square last"></div>
+                    <p id="score_bar" class="score_num">8</p>
+                </div>
+                <p><span class="category_info">type: </span><span th:text="${anime_title.type}"></span></p>
+                <p><span class="category_info">episodes: </span><span th:text="${anime_title.episodes}"></span></p>
+                <p><span class="category_info">status: </span><span th:text="${anime_title.titleStatus}"></span></p>
+                <p><span class="category_info">studio: </span><span>pamma</span></p>
+                <p><span class="category_info">year: </span><span th:text="${anime_title.year}"></span></p>
+                <p><span class="category_info">rating: </span><span th:text="${anime_title.rating}"></span></p>
+                <p><span class="category_info">duraition: </span><span th:text="${anime_title.duration}"></span></p>
+                <p><span class="category_info">source: </span><span th:text="${anime_title.titleSrc}"></span></p>
+            </div>
+            <div class="right_info info">
+                <p class="title_info">STATS:</p>
+                <div id="doughnutChart" class="chart"></div>
+                <div class="status1">
+                    <span class="st_title1">plan to watch: </span>
+                    <span class="st_number">82943</span>
+                </div>
+                <div class="status2">
+                    <span class="st_title2">completed: </span>
+                    <span class="st_number">82943</span>
+                </div>
+                <div class="status3">
+                    <span class="st_title3">watching: </span>
+                    <span class="st_number">82943</span>
+                </div>
+                
+                <div class="status4">
+                    <span class="st_title4">on-hold: </span>
+                    <span class="st_number">82943</span>
+                </div>
+                <div class="status5">
+                    <span class="st_title5">dropped: </span>
+                    <span class="st_number">82943</span>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="level_1" id="synopsis">
+            <p  id="synopsisText" th:text="${anime_title.synopsis}">
+
+            </p>
+            <button class="button_settings bs2" id="showMoreBtn" style="display: none;">Show More</button>
+        </div>
+        <br>
+        <div class="level_2">
+            <p class="title_info">YOUTUBE TRAILER:</p>
+            <a class="video_link" th:href="${anime_title.trailerYoutube}" target=”_blank”>
+                <div class="circle_button"></div>
+                <img id="youtubeImage" th:src="'//img.youtube.com/vi/' + ${video_id} + '/maxresdefault.jpg'" onerror="handleImageError()">
+            </a>
+        </div>
+    </div>
+
+    <footer th:insert="~{blocks/footer :: footer}"></footer>
+
+    <script>
+        function adding_br() {
+            var paragraphs = document.querySelectorAll('p');
+            paragraphs.forEach(function(paragraph) {
+                var text = paragraph.innerHTML.trim();
+                var lines = text.split('\n');
+
+                if (lines.length > 1) {
+                    paragraph.innerHTML = lines.join('<br>');
+                }
+            });
+        };
+
+        window.onload = function() {
+        var synopsisDiv = document.getElementById("synopsis");
+        var paragraph = synopsisDiv.querySelector("#synopsisText");
+        var text = paragraph.textContent;
+        var showMoreBtn = synopsisDiv.querySelector("#showMoreBtn");
+
+        if (text.length > 1000) {
+            var hiddenText = text.slice(1000);
+            paragraph.textContent = text.slice(0, 1000);
+            showMoreBtn.style.display = "block";
+            adding_br();
+            showMoreBtn.addEventListener("click", function() {
+                paragraph.textContent = text;
+                showMoreBtn.style.display = "none";
+                adding_br();
+            });
+        }
+    };
+
+        function handleImageError() {
+
+
+            var imgElement = document.getElementById("youtubeImage");
+            imgElement.src = "/img/yt_logo.png";
+        }
+
+        fetch("<https://img.youtube.com/vi/' + ${video_id} + '/default.jpg>")
+            .then((response) => response.json())
+            .then((data) => console.log(data))
+            .catch((error) => console.log(error));
+    </script>
+</body>
+</html>
